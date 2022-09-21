@@ -1,0 +1,608 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/tib.css">
+
+    <script src="plugin/math/math.js"></script>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <div class="r-stretch">
+                    <h1 style="text-align: left;margin-top: 16%;">Datenadressierung und Künstliche
+                        Intelligenz</h1>
+                    <p style="text-align: left;margin-top: 1em;">Matthias Springstein</p>
+                    <p style="text-align: left;font-size: 70%; margin-top: 1em;">
+                        TIB - Leibniz Information Centre for Science and Technology<br>
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Übersicht</h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:100%; width:25%" src="images/pleydenwurff_kreuzabnahme_1.jpg"></img>
+                        <img style="height:100%; width:25%" src="images/pontormo_kreuzabnahme_1.jpg"></img>
+                        <img style="height:100%; width:25%" src="images/caravaggio_grablegung_1.jpg"></img>
+                        <img style="height:100%; width:25%" src="images/rubens_grablegung_1.jpg"></img>
+                    </div>
+                    <ul style="margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li>Warum Deep Learning?</li>
+                        <li>Was können neuronale Netze?</li>
+                        <li>Wie werden neuronale Netze trainiert?</li>
+                        <li>Wie können wir mit neuronalen Netzen suchen?</li>
+                        <li>Welchen Service gibt es?</li>
+                        <li>iART - Kunsthistorische Bildsuchmaschine</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Warum Deep Learning? - Bildklassifikation
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:100%; width:100%" src="images/pipeline_classic.svg"></img>
+                    </div>
+                    <ul style="margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li>"Hand crafted" Merkmale, die mit festen Verfahren berechnet werden</li>
+                        <ul>
+                            <li>Farbverteilungen</li>
+                            <li>Kantenmuster</li>
+                            <li>Form</li>
+                        </ul>
+                        <li>Trainierbare Klassifikatoren zur Unterscheidung zwischen Klassen in diesem Merkmalsraum</li>
+                    </ul>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Warum Deep Learning?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; margin: auto">
+                        <img style="width:70%; margin: auto" src="images/cat_1.jpeg"></img>
+                    </div>
+
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Warum Deep Learning?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; margin: auto">
+                        <img style="width:70%; margin: auto" src="images/cat_2.jpeg"></img>
+                    </div>
+
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Warum Deep Learning?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; margin: auto">
+                        <img style="width:100%; margin: auto" src="images/cats.jpg"></img>
+                    </div>
+
+                </div>
+            </section>
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Warum Deep Learning? - Neuronale Netzwerke
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:100%" src="images/pipeline_nn.svg"></img>
+                    </div>
+                    <ul style="margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li>Merkmalsextraktion und Klassifizierung erfolgen in einem Schritt</li>
+                        <li>Die Merkmalsextraktion wird trainiert und ist nicht von Menschen vordefiniert</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Was können neuronale Netze?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                        <img style="margin:1px;height:100%; width:48%" src="images/app_image.svg"></img>
+                        <img style="margin:1px;height:100%; width:48%" src="images/app_cap.svg"></img>
+                        <img style="margin:1px;height:100%; width:22%" src="images/app_seg.png"></img>
+                        <img style="margin:1px;height:100%; width:70%" src="images/app_gen.svg"></img>
+                    </div>
+            </section>
+
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <p style="text-align: left; width: 100%; margin-left: 7%; font-weight:bold">
+                        Was brauche ich für mein eigenes neuronales Netz?
+                    </p>
+                    <ul style="margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li><span style="font-weight: bold;">Daten:</span> Mehrere Beispieleingaben und meist auch
+                            zugehörige Anmerkungen</li>
+                        <li><span style="font-weight: bold;">Modell:</span> Ein geeignetes Modell, das für Input und
+                            Output geeignet ist</li>
+                        <li><span style="font-weight: bold;">Zielfunktion:</span> Gibt an wie gut das Modell bereits
+                            funktioniert</li>
+                        <li><span style="font-weight: bold;">Optimierer:</span> Eine Funktion, die angibt, wie sich das
+                            Modell verändern soll</li>
+                    </ul>
+                    <p style="text-align: left; width: 100%; margin-left: 7%; font-weight:bold">
+                        Warum erst in den letzten Jahren?
+                    </p>
+                    <ul style="margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li>Entstehung von immer größeren Datenmengen, die sich für das Training eignen</li>
+                        <li>Effizientere Methoden</li>
+                        <li>Mehr Ressourcen für die Datenverarbeitung</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a href="https://playground.tensorflow.org/">https://playground.tensorflow.org/</a></p>
+                </div>
+            </section>
+
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:5%; width:12%; margin:auto" src="images/rnn.png"></img>
+                        <p style="width:80%;text-align: left;margin-left: 10px;">Recurrent neural networks (RNN)</p>
+                    </div>
+                    <div class="fragment highlight-red"
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:5%; width:12%; margin:auto" src="images/cnn.png"></img>
+                        <p style="width:80%;text-align: left;margin-left: 10px;">Convolutional neural networks (CNN)</p>
+                    </div>
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:5%; width:12%; margin:auto" src="images/dn.png"></img>
+                        <p style="width:80%;text-align: left;margin-left: 10px;">Deconvolutional networks (DN)</p>
+                    </div>
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:5%; width:12%; margin:auto" src="images/an.png"></img>
+                        <p style="width:80%;text-align: left;margin-left: 10px;">Attention networks (AN)</p>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:100%" src="images/cnn_simple_flat_without_filters.svg"></img>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:100%" src="images/cnn_simple_flat.svg"></img>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a
+                            href="https://github.com/SpringsteinM/deep_learning_tutorial/blob/main/summer_school_1.ipynb">https://github.com/SpringsteinM/deep_learning_tutorial/blob/main/summer_school_1.ipynb</a>
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie werden neuronale Netze trainiert?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="width:100%; margin:auto" src="images/resnet18_2.png"></img>
+                    </div>
+                </div>
+            </section>
+
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie können wir mit neuronalen Netzen suchen?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:100%" src="images/pipeline_classic.svg"></img>
+                    </div>
+                    <ul style="margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li>Die Klassifizierung dient lediglich der Vorhersage des konkreten Objekts oder der Szene
+                        </li>
+                        <li>Das Ergebnis der Merkmalsextraktion kann auch zum Vergleich von Bildern verwendet werden
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie können wir mit neuronalen Netzen suchen?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:6em; margin:auto" src="images/pipeline_nn.svg"></img>
+                    </div>
+                    <div class="fragment fade-in"
+                        style="margin:auto; padding-top:2em;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:6em; margin:auto" src="images/pipeline_nn_split.svg"></img>
+                    </div>
+                </div>
+            </section>
+
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Wie können wir mit neuronalen Netzen suchen?
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a
+                            href="https://github.com/SpringsteinM/deep_learning_tutorial/blob/main/summer_school_2.ipynb">https://github.com/SpringsteinM/deep_learning_tutorial/blob/main/summer_school_2.ipynb</a>
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Welchen Service gibt es? - Vision API
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:20%; margin: auto;" src="images/google_cloud_logo.svg"></img>
+                    </div>
+                    <ul style="margin-top: 2em; margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li><a href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></li>
+                        <li>Schnittstellen für verschiedene Bildanalyseverfahren:</li>
+                        <ul>
+                            <li>Objekterkennung</li>
+                            <li>Bildklassifikation</li>
+                            <li>OCR</li>
+                        </ul>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Welchen Service gibt es? - Vision API
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></p>
+                </div>
+            </section>
+            <section>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Welchen Service gibt es? - Clarifai
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:20%; margin: auto;" src="images/clarifai_logo.svg"></img>
+                    </div>
+                    <ul style="margin-top: 2em; margin-bottom: 1%; text-align: left; width: 100%; margin-left: 10%;">
+                        <li><a href="https://www.clarifai.com/">https://www.clarifai.com/</a></li>
+                        <li>Schnittstellen für verschiedene Bildanalyseverfahren:</li>
+                        <ul>
+                            <li>Personenerkennung</li>
+                            <li>Objekterkennung</li>
+                            <li>Bildklassifikation</li>
+                            <li>Generierung von Bild Embeddings</li>
+                        </ul>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Welchen Service gibt es? - Clarifai
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a href="https://www.clarifai.com/">https://www.clarifai.com/</a></p>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">iART - Kunsthistorische Bildsuchmaschine
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="width: 80%; margin:auto" src="images/iart_sebastian_umap_5.png"></img>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">iART - Kunsthistorische Bildsuchmaschine
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a href="https://iart.vision/">https://iart.vision/</a></p>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 style="margin-top:4%;margin-bottom:5%;">Bonus
+                </h2>
+                <div class="r-stretch">
+                    <div
+                        style="margin:auto;width: 100%; display:flex; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                        <img style="height:30%; width:40%; margin:auto" src="images/work.svg"></img>
+                    </div>
+                    <p><a
+                            href="https://github.com/SpringsteinM/deep_learning_tutorial/blob/main/summer_school_3.ipynb">https://github.com/SpringsteinM/deep_learning_tutorial/blob/main/summer_school_3.ipynb</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="node_modules/@svgdotjs/svg.js/dist/svg.min.js"></script>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        var on_approach_slide = false;
+        var approach_fragment_index = 0;
+        var approach_svg = null;
+        var semi_svg = null;
+        var semi_fragment_index = 0;
+        Reveal.initialize({
+            hash: true,
+            width: 1920,
+            height: 1080,
+            slideNumber: 'c/t',
+
+            // Hide cursor if inactive
+            hideInactiveCursor: true,
+
+            // Time before the cursor is hidden (in ms)
+            hideCursorTime: 100,
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                config: 'TeX-AMS_HTML-full',
+                // pass other options into `MathJax.Hub.Config()`
+                TeX: { Macros: { RR: "{\\bf R}" } }
+            },
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
+        }).then(() => {
+            console.log("ready")
+            Reveal.on('slidechanged', event => {
+                if (event.currentSlide.id == "approach") {
+                    console.log("start")
+                    console.log(event)
+                    console.log(document.getElementById("approach-detr").contentDocument)
+                    const svg_content = document.getElementById("approach-detr").contentDocument
+                    approach_svg = SVG.adopt(svg_content.querySelector("svg"))
+                    // approach_svg.findOne('#input_1').attr({
+                    //     opacity: 0.5
+                    // });
+                    approach_svg.findOne('#input_1').attr({
+                        opacity: 0
+                    })
+                    approach_svg.findOne('#input_2').attr({
+                        opacity: 0
+                    })
+                    approach_svg.findOne('#output_1').attr({
+                        opacity: 0
+                    })
+                    approach_svg.findOne('#output_2').attr({
+                        opacity: 0
+                    })
+                    approach_svg.findOne('#detr_1').attr({
+                        opacity: 0
+                    })
+                    approach_svg.findOne('#detr_2').attr({
+                        opacity: 0
+                    })
+                    approach_svg.findOne('#trans_1').attr({
+                        opacity: 0
+                    })
+                    on_approach_slide = true;
+                    approach_fragment_index = 0;
+
+                    // console.log(SVG.adopt(svg.querySelector("svg")))
+                    // const input_element = svg.getElementById("g1416")
+                    // input_element.setAttribute("hidden", "hidden")
+                    // console.log()
+                }
+                else {
+
+                    on_approach_slide = false;
+                    approach_fragment_index = 0;
+                }
+                if (event.currentSlide.id == "semi") {
+                    console.log("start")
+                    console.log(event)
+                    console.log(document.getElementById("approach-semi").contentDocument)
+                    const svg_content = document.getElementById("approach-semi").contentDocument
+                    semi_svg = SVG.adopt(svg_content.querySelector("svg"))
+                    // semi_svg.findOne('#input_1').attr({
+                    //     opacity: 0.5
+                    // });
+                    semi_svg.findOne('#label_1').attr({
+                        opacity: 0
+                    })
+                    semi_svg.findOne('#unlabel_1').attr({
+                        opacity: 0
+                    })
+                    semi_svg.findOne('#output_1').attr({
+                        opacity: 0
+                    })
+                    semi_svg.findOne('#output_2').attr({
+                        opacity: 0
+                    })
+                    // semi_svg.findOne('#output_3').attr({
+                    //     opacity: 0
+                    // })
+                    semi_svg.findOne('#ema_1').attr({
+                        opacity: 0
+                    })
+                    // semi_svg.findOne('#detr_2').attr({
+                    //     opacity: 0
+                    // })
+                    // semi_svg.findOne('#trans_1').attr({
+                    //     opacity: 0
+                    // })
+                    on_semi_slide = true;
+                    semi_fragment_index = 0;
+
+                    // console.log(SVG.adopt(svg.querySelector("svg")))
+                    // const input_element = svg.getElementById("g1416")
+                    // input_element.setAttribute("hidden", "hidden")
+                    // console.log()
+                }
+                else {
+
+                    on_semi_slide = false;
+                    semi_fragment_index = 0;
+                }
+            });
+            Reveal.on('fragmentshown', event => {
+                console.log(event)
+                // event.fragment = the fragment DOM element
+                approach_fragment_index += 1;
+                console.log(approach_fragment_index)
+                if (on_approach_slide && approach_svg) {
+                    if (approach_fragment_index == 1) {
+                        approach_svg.findOne('#input_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (approach_fragment_index == 2) {
+                        approach_svg.findOne('#detr_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                        approach_svg.findOne('#output_1').animate(1000, 500, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (approach_fragment_index == 3) {
+                        approach_svg.findOne('#trans_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                        approach_svg.findOne('#input_2').animate(1000, 500, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (approach_fragment_index == 4) {
+                        approach_svg.findOne('#detr_2').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                        approach_svg.findOne('#output_2').animate(1000, 500, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    // if (approach_fragment_index == 5) {
+                    //     approach_svg.findOne('#detr_2').show()
+                    //     approach_svg.findOne('#output_2').show()
+                    // }
+
+                }
+                semi_fragment_index += 1;
+                console.log(semi_fragment_index)
+                if (on_semi_slide && semi_svg) {
+                    if (semi_fragment_index == 1) {
+                        semi_svg.findOne('#label_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (semi_fragment_index == 2) {
+                        semi_svg.findOne('#unlabel_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (semi_fragment_index == 3) {
+                        semi_svg.findOne('#output_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (semi_fragment_index == 4) {
+                        semi_svg.findOne('#output_2').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    if (semi_fragment_index == 5) {
+                        semi_svg.findOne('#ema_1').animate(1000, 0, "now").attr({
+                            opacity: 1
+                        })
+                    }
+                    // if (semi_fragment_index == 5) {
+                    //     semi_svg.findOne('#detr_2').show()
+                    //     semi_svg.findOne('#output_2').show()
+                    // }
+
+                }
+            });
+
+        })
+
+    </script>
+</body>
+
+</html>
